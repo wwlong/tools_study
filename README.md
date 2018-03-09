@@ -1,10 +1,10 @@
 # tools_study
-##格式化获取JSON格式的文件内容分
+## 格式化获取JSON格式的文件内容分
 1.  打开JSON文件,获取Json格式的内容
 2.  创建JSON reader并parse
 3.  对parse的结果进行获取
 
-###例如格式话获取一个test.json的内容
+### 例如格式话获取一个test.json的内容
 #### step0
     std::ifstream ifs;
     Json::Reader reader;
