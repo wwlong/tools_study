@@ -1,0 +1,22 @@
+This is the most elegant doubly linked list implementation
+I have ever seen in C. For those who fret about C not having
+a good list data structure, fret no more. The list is stolen
+from Linux kernel. I just removed hardware prefetching from
+the source code so that we can use it for user-space apps.
+
+For sample code, see the hash table that I implemented using
+this list.
+
+http://isis.poly.edu/kulesh/stuff/src/
+
+/home/	/research/	/stuff/	
+/src/
+Some of this code is written for the security classes I teach. Thus, may be heavily commented; I am not sure if that's a good thing or bad thing.
+List -- Very elegant, type oblivious doubly linked list in C from Linux source tree. Also see this and hash table below.
+Hashtable -- A type oblivious hash table in C using the list above.
+Simple Scheduler -- A simple packet scheduler that allows you to "describe" the type of packets you're interested in and evaluate a set of BPF expressions on the fly and schedule the appropriate packets to appropriate places.
+Tcpspoof -- A skeleton for a packet generator that spoofs TCP packets of choice.
+Minisniff -- A skeleton for a network sniffer using pcap library.
+URLsniff -- A specialized sniffer that uses minisniff to pick up URLs from the wire.
+jpeg-stats -- Gives various statistics about jpeg images, can dump various components of images etc. requires jpeg-lib for compilation
+
