@@ -1,10 +1,10 @@
 CC=g++
 #CPPFLAGS += -g
 
-SRC += ../cjson/jsoncpp.cpp 
+SRC += ../../cjson/jsoncpp.cpp 
 SRC += ./test.cpp 
 
-INC += -I../cjson
+INC += -I../../cjson
 INC += -I.
 
 CPPFLAGS += ${INC}

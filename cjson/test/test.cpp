@@ -112,6 +112,26 @@ void parse_config_param_json(const char *filepath)
     std::cout << happy_family.location.country << endl;
     std::cout << happy_family.location.province << endl;
 }
+/*
+ *  解析一个json string 
+ * */
+
+void parse_json_string_demo(void) {
+
+    Json::Reader reader;
+    Json::Value root;
+    person man;
+    string lily = "{\"name\":\"lily\",\"age\":\"20\",\"sex\":\"female\",\"phone_num\":\"123\"}";
+    if (!reader.parse(lily, root, false))
+    {
+        flag_dbg("parse failed\n");
+        return;
+    }
+    man.name = root["name"].asString();
+
+    std::cout << man.name << std::endl;
+}
+
 
 void usage(void)
 {
@@ -133,5 +153,10 @@ int main(int32_t argc, char **argv)
         return -1;
     }
     parse_config_param_json(filename.c_str());
+
+/*
+ *  直接解析json string 
+ * */
+    parse_json_string_demo();
     return 0;
 }
