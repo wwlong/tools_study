@@ -30,7 +30,6 @@ void *taska(void *args)
             free(msg);
             msg=NULL;
         }
-//        usleep(100);
     }
 }
 
@@ -54,6 +53,7 @@ void *taskb(void *args)
         else {
             //printf("msg NULL\n");
         }
+        usleep(1000000);
 //        usleep(100);
     }
 }

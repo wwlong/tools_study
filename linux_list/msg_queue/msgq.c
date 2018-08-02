@@ -37,6 +37,7 @@ LP_LIST msgqInit(int32_t maxLength){
         printf("list malloc failed\n");
         return NULL;
     }
+    sem_init(&(list->sem), 0, 0);
     memset(list, 0, sizeof(ST_LIST));
     list->MAX_LENGTH = maxLength;
     list->length = 0;
@@ -72,6 +73,7 @@ int32_t msgqSet(LP_LIST list, void *ptr) {
         list->length ++;
         list_add_tail(&(tmp->list), &(list->list_node.list));
     pthread_mutex_unlock(&mutex);
+    sem_post(&(list->sem));
     return 0;
 }
 /**
@@ -84,6 +86,7 @@ int32_t msgqGet(LP_LIST list, void *ptr) {
         printf("invalid params\n");
         return -1;
     }
+    sem_wait(&(list->sem));
     pthread_mutex_lock(&mutex);
 	LP_LIST_NODE tmp; 
 	struct list_head *pos, *q;
@@ -126,6 +129,7 @@ int32_t msgqDestroy(LP_LIST list) {
 		 free(tmp);
          list->length --;
 	}
+    sem_destroy(&(list->sem));
     pthread_mutex_unlock(&mutex);
     free(list);
     list = NULL;

@@ -7,6 +7,7 @@ extern "C"
 {
 #endif 
 #include <stdint.h>
+#include <semaphore.h>
 #include "list.h"
 
 /*
@@ -20,6 +21,7 @@ typedef struct {
 typedef struct {
     int32_t MAX_LENGTH;
     int32_t length;
+    sem_t sem;
 //    pthread_mutex_t lock;
     ST_LIST_NODE list_node;
 }ST_LIST, *LP_LIST;
