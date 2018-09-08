@@ -1,5 +1,5 @@
 #CROSS = arm-linux-gnueabihf-
-CXX = ${CROSS}g++
+CXX = ${CROSS}gcc
 RM = rm
 STRIP = ${CROSS}strip
 
